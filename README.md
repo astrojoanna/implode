@@ -20,7 +20,7 @@ The other rows have NN(=total number of superparticles used) columns each and ar
 2. x position [cm]
 3. y position [cm]
 4. z position [cm]
-5. mass of the physical particle represented by each superparticle, normalized by its initial mass (=1.0 if the mass didn’t change during collisions)
+5. mass of the physical particle represented by each superparticle, normalized by the initial minimum pebble mass specified in the parameter file
 6. x velocity component [cm/s]
 7. y velocity component [cm/s]
 8. z velocity component [cm/s]
