@@ -35,7 +35,7 @@ The `sizedistr-init...dat` contains the initial size distribution of particles a
 
 ## License
 
-This code is licensed under the GNU General Public License v3. Among other things, this means that if you modified this code for a publication, it needs to be open sourced as well.
+This code is licensed under the GNU General Public License v3. Among other things, this means that if you modified this code for a publication, it needs to be open sourced under the same license.
 
 ## Credits
 
