@@ -14,9 +14,9 @@ Compile with `make`
 Run with `./implode parameters`
 where `parameters` is a parameter file. A couple of example files are included in the repository, in particular `virialtest.par` is a setup with no gas and no collisions considered where the particles are initialized with random velocities corresponding to virial equilibrium, `settlingtest.par` is a test in which there is gas but no collisions and the particles are not given any initial velocity dispersion, and `setup.par` corresponds to one of the models presented in Visser et al. paper.
 
-WARNING: the code is OPENMP parallel and thus will by default use all availble resources. To set the number of threads use "set OMP_NUM_THREADS=n" or "export OMP_NUM_THREADS=n" depending on your operating system.
+WARNING: the code is OPENMP parallel and thus will by default use all availble resources. To set the number of threads use `set OMP_NUM_THREADS=n` or `export OMP_NUM_THREADS=n` depending on your operating system.
 
-Before re-compiling, clean the directory with "make clean" - WARNING: it will remove the output if you do not re-name it. When you just change the parameter file and not the source code, there is no need to re-compile. The simulation will not run if the output is overwritten.
+Before re-compiling, clean the directory with `make clean` - WARNING: it will remove the output if you do not re-name it. When you just change the parameter file and not the source code, there is no need to re-compile. The simulation will not run if the output is overwritten.
 
 Parameters that can be set in the parameter file and changed without re-compiling the code are:
 1. `gas`                      is gas drag taken into account? (logical)
