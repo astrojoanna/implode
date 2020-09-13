@@ -48,8 +48,8 @@ Parameters that can be set in the parameter file and changed without re-compilin
 ### Output
 
 The full output is stored in `output...dat` file and it is written every `output_freq` timesteps, the frequency can be set in the parameter file. Additionally, there is a timestep criterion `output_dt_year` to avoid sparse output, the maximum timestep between outputs can also be set in the parameter file. The output format is:
-1. The first row has 3 columns: these are time in years, physical mass represented by one superparticle `mswarm` (in gram, constant), initial radius of the cloud `R0` (in cm)
-The other rows have NN(=total number of superparticles used) columns each and are:
+1. The first row has 3 columns: these are time in years, physical mass represented by one superparticle (in gram, constant), initial radius of the cloud (corresponding to the Hill radius, in cm)
+The other rows have `nr_parts` (=total number of superparticles used) columns each and are:
 2. x position [cm]
 3. y position [cm]
 4. z position [cm]
