@@ -7,6 +7,8 @@ The representative particle approach is used throught the code. The motion of pa
 
 ## Code usage
 
+### Setup
+
 Compile with `make`
 
 Run with `./implode parameters`
@@ -14,9 +16,38 @@ where `parameters` is a parameter file. A couple of example files are included i
 
 WARNING: the code is OPENMP parallel and thus will by default use all availble resources. To set the number of threads use "set OMP_NUM_THREADS=n" or "export OMP_NUM_THREADS=n" depending on your operating system.
 
-Before re-compiling, clean the directory with "make clean" - WARNING: it will remove the output if you don't re-name it. When you just change the parameter file and not the source code, there is no need to re-compile. The simulation will not run if the output would be overwritten.
+Before re-compiling, clean the directory with "make clean" - WARNING: it will remove the output if you do not re-name it. When you just change the parameter file and not the source code, there is no need to re-compile. The simulation will not run if the output is overwritten.
 
-Output is stored in `output...dat` file and it is written every n timesteps, the frequency can be set in the parameter file. Additionally, there is a time step criterion to avoid sparse output, the maximum time step between outputs can also be set in the parameter file. The output format is:
+Parameters that can be set in the parameter file and changed without re-compiling the code are:
+1. `gas`                      is gas drag taken into account? (logical)
+2. `collisions`               are collisions taken into account? (logical)
+3. `nr_parts`                 number of representative particles (integer)
+4. `nr_parts_per_zone`        minimum number of representative particles per zone (integer, note that doe to Monte Carlo method convergence it should not be below 200)
+5. `radial_distance_AU`       radial distance of the clump (float, [AU])
+6. `gas_surfde_cgs`           surface density of the gas (at the clump location, float [g cm-2])
+7. `final_radius_km`          final radius of planetesimal (float, [km])
+8. `max_time_yr`              maximum time of the simulation (float, [years])
+9. `delta_t_omegaK`           basic timestep for advection solver (float, [1/OmegaK the local Keplerian frequency])
+10. `softening_length_Rsolid` softening length for the advection solver (float, [in the units of the final planetesimal radius])
+11. `init_min_size`           minimum size of pebbles in the initial size distribution (float, [cm])
+12. `init_max_size`           maximum size of pebbles in the initial size distribution (float, [cm])
+13. `initial_size_distr`      is the initial size distribution considered? (logical, if false, all grains start at `init_max_size`)
+14. `size_distr_kappa`        slope of the initial size distribution (float, default is 0.1666666667 corresponding to the MRN distribution)
+15. `monomer_size_cm`         monomer size (sets the minimum grain size in the case of fragmentation, float, [cm])
+16. `material_density_cgs`    material denisty of pebbles and the final planetesimal (float, [g cm-3])
+17. `bouncing`                is bouncing included as a collision outcome? (logical)
+18. `COR`                     coefficient of restitution for bouncing collisions (float)
+19. `fragmentation`           is fragmentation included as a collision outcome? (logical)
+20. `initial_vel_disp_factor` multiplier of the initial velocities (float, 1 corresponds to the virial equilibrium)
+21. `init_free_fall`          initialize the radial velocity component with free-fall/terminal speed velocity? (logical)
+22. `output_freq`             number of timesteps between outputs (integer)
+23. `output_dt_year`          maximum time between outputs (float [years])
+24. `screen_out`              write extended screen output? (logical)
+25. `full_output`             should full output be written? (see below)
+
+### Output
+
+The full output is stored in `output...dat` file and it is written every `output_freq` timesteps, the frequency can be set in the parameter file. Additionally, there is a timestep criterion `output_dt_year` to avoid sparse output, the maximum timestep between outputs can also be set in the parameter file. The output format is:
 1. The first row has 3 columns: these are time in years, physical mass represented by one superparticle `mswarm` (in gram, constant), initial radius of the cloud `R0` (in cm)
 The other rows have NN(=total number of superparticles used) columns each and are:
 2. x position [cm]
