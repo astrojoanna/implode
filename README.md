@@ -3,7 +3,7 @@ IMPLODE stays for "planetesImal forMation via Pebble cLOuD collapsE"
 
 This is a Fortran code to calculate collapse of a bound pebble cloud driven by inelastic collisions of pebbles and gas drag written by Joanna Drążkowska and Rico Visser.
 
-The representative particle approach is used throught the code. The motion of particles is integrated with a Runge-Kutta Fehlberg variable step scheme. A Monte Carlo algorithm is used to solve the collisional evolution.
+The representative particle approach is used throughout the code. The motion of particles is integrated with a Runge-Kutta Fehlberg variable step scheme. A Monte Carlo algorithm is used to solve the collisional evolution.
 
 ## Code usage
 
