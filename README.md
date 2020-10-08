@@ -39,12 +39,12 @@ Parameters that can be set in the parameter file and changed without re-compilin
 18. `COR`                     coefficient of restitution for bouncing collisions (float)
 19. `fragmentation`           is fragmentation included as a collision outcome? (logical)
 20. `dmmax`                   collisional acceleration parameter, minimum relative change of the target mass in a sticking collision (float)
-20. `initial_vel_disp_factor` multiplier of the initial velocities (float, 1 corresponds to the virial equilibrium)
-21. `init_free_fall`          initialize the radial velocity component with free-fall/terminal speed velocity? (logical)
-22. `output_freq`             number of timesteps between outputs (integer)
-23. `output_dt_year`          maximum time between outputs (float [years])
-24. `screen_out`              write extended screen output? (logical)
-25. `full_output`             should full output be written? (see below)
+21. `initial_vel_disp_factor` multiplier of the initial velocities (float, 1 corresponds to the virial equilibrium)
+22. `init_free_fall`          initialize the radial velocity component with free-fall/terminal speed velocity? (logical)
+23. `output_freq`             number of timesteps between outputs (integer)
+24. `output_dt_year`          maximum time between outputs (float [years])
+25. `screen_out`              write extended screen output? (logical)
+26. `full_output`             should full output be written? (see below)
 
 ### Output
 
