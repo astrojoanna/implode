@@ -18,6 +18,7 @@ COR                      0.1
 softening_length_Rsolid  0.001
 bouncing                 .true.
 fragmentation            .true.
+dmmax                    0.0001
 initial_size_distr       .false.
 size_distr_kappa         0.1666666667
 initial_vel_disp_factor  1.0
