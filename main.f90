@@ -334,10 +334,10 @@ program collapse
       rd = dsqrt(ynew(:,4)**2 + ynew(:,5)**2 + ynew(:,6)**2)
       vd = dsqrt(ynew(:,1)**2 + ynew(:,2)**2 + ynew(:,3)**2)
 
-      abstol(:,1) = vd* tol
+      abstol(:,1) = rd* tol
       abstol(:,2) = abstol(:,1)
       abstol(:,3) = abstol(:,1)
-      abstol(:,4) = rd* tol
+      abstol(:,4) = vd* tol
       abstol(:,5) = abstol(:,4)
       abstol(:,6) = abstol(:,4)
       ers = abs(ynew - ynewfifth) + 1e-40
@@ -500,7 +500,7 @@ program collapse
 
       write(*,*) 'Output written at t=',time/year,'years, there are',nrset,&
                 ' settled particles, there were ',sum(allswarms(:)%nrcl),' collisions'
-                
+
       if (screenout) write(*,*) '    --  number of zones is now: ', NZ
       !write density in each zone
       if (screenout) then
