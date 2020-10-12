@@ -27,7 +27,6 @@ program collapse
   real(kind=8), allocatable :: listy(:,:),rd(:),abstol(:,:),vd(:),ers(:,:),ynew(:,:),ynewfifth(:,:),acc(:,:)
 
   real(kind=8) :: ss
-  real(kind=8) :: tol = 1e-8
   real(kind=8) :: U0,T0,Uexp,Texp ! initial and current potential and kinetic energies
   real(kind=8) :: vvir0  ! virial speed calculated from the initial kinetic energy
   real(kind=8) :: sigma  ! velocity dispersiton

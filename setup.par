@@ -16,6 +16,7 @@ monomer_size_cm          1.e-4
 material_density_cgs     1.
 COR                      0.1
 softening_length_Rsolid  0.01
+error_tolerance          1.e-8
 bouncing                 .false.
 fragmentation            .true.
 dmmax                    0.0001

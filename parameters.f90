@@ -40,7 +40,7 @@ real(kind=8) :: boulder       ! mass of a boulder = crushed shell fragment
 real(kind=8) :: softl         ! softening length for selfgravity calculation
 real(kind=8) :: kappa         ! adjusting initial size distribution
 real(kind=8) :: fdisp         ! initial velocity dispersion factor
-
+real(kind=8) :: tol           ! error tolerance for advection solver
 
 contains
 
@@ -137,6 +137,10 @@ subroutine read_parameters(ctrl_file)
       case('softening_length_Rsolid')
         read(buffer, *, iostat=ios) softl
         print *, 'Softening length for self-gravity calculation:', softl,' final radii'
+        softl=softl*Rsolid
+      case('error_tolerance')
+        read(buffer, *, iostat=ios) tol
+        print *, 'Error tolerance for the advection solver:', tol
         softl=softl*Rsolid
       case('initial_vel_disp_factor')
         read(buffer, *, iostat=ios) fdisp
