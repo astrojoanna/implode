@@ -141,7 +141,6 @@ subroutine read_parameters(ctrl_file)
       case('error_tolerance')
         read(buffer, *, iostat=ios) tol
         print *, 'Error tolerance for the advection solver:', tol
-        softl=softl*Rsolid
       case('initial_vel_disp_factor')
         read(buffer, *, iostat=ios) fdisp
         print *, 'Initial velocity dispersion factor:', fdisp
