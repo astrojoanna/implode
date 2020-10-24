@@ -147,11 +147,11 @@ program collapse
               ((mgrid(j+1) - mgrid(j)) * mswarm * NN)
   enddo
 
-  open(11,file='sizedistr-init' // trim(file_name_appendix),status='new')
+  open(22,file='sizedistr-init' // trim(file_name_appendix),status='new')
   do j = 1, nbins
-    write(11,*) sqrt(mgrid(j+1)*mgrid(j))/monomer, con2*sqrt(mgrid(j+1)*mgrid(j))**(1./3.), m2fm(j)
+    write(22,*) sqrt(mgrid(j+1)*mgrid(j))/monomer, con2*sqrt(mgrid(j+1)*mgrid(j))**(1./3.), m2fm(j)
   enddo
-  close(11)
+  close(22)
 
   ! calculate minimum distance of each consecutive paricle so that density=rhos
   do i = 1, NN
@@ -296,8 +296,10 @@ program collapse
   write(99,*) time/year, Texp, abs(Uexp), mcore/M0, sum(allswarms(:)%nrcl), &
               sum(allswarms(:)%nbou), sum(allswarms(:)%nfra), tau1, rinner/R0
 
-  if (fullout) open(11,file=output_fn,status='new')
-  if (fullout) call write_output(time,allswarms)
+  open(11,file=output_fn,status='new')
+  call write_output(time,allswarms)
+  if (.not.fullout) close(11)
+
 
   ! >> MAIN LOOP >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   do while (.not.all(allswarms(:)%set) .and. time<tmax) ! the code runs until either all particles are settled or tmax is exceeded
@@ -483,8 +485,10 @@ program collapse
     if (mod(iter,outfreq)==0 .or. time>timenextout) then
 
       idallswarms = allswarms
-      if (fullout) call shell_sort_id(idallswarms)
-      if (fullout) call write_output(time,idallswarms)
+      call shell_sort_id(idallswarms)
+      if (.not.fullout) open(11,file=output_fn,status='replace')
+      call write_output(time,idallswarms)
+      if (.not.fullout) close(11)
       timenextout = time + outputdt
 
       ! calculate the energies
@@ -516,9 +520,10 @@ program collapse
 
   ! final output
   idallswarms = allswarms
-  if (fullout) call shell_sort_id(idallswarms)
-  if (fullout) call write_output(time,idallswarms)
-
+  call shell_sort_id(idallswarms)
+  if (.not.fullout) open(11,file=output_fn,status='replace')
+  call write_output(time,idallswarms)
+  if (.not.fullout) close(11)
   ! calculate the energies
   Uexp = 0.
   Texp = 0.
@@ -558,7 +563,7 @@ program collapse
   deallocate(menc)
   deallocate(vsph)
 
-  close(11)
+  if (fullout) close(11)
   close(99)
 
 end program

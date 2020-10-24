@@ -149,7 +149,7 @@ subroutine read_parameters(ctrl_file)
         print *, 'Initialize radial velocity with analytical prediction:', initvff
       case('full_output')
         read(buffer, *, iostat=ios) fullout
-        print *, 'Write full output:', fullout
+        print *, 'Save all full outputs:', fullout
       case('size_distr_kappa')
         read(buffer, *, iostat=ios) kappa
         print *, 'Size distribution parameter kappa:', kappa

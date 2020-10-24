@@ -24,4 +24,4 @@ initial_size_distr       .false.
 size_distr_kappa         0.1666666667
 initial_vel_disp_factor  0.0
 init_free_fall           .true.
-full_output              .true.
+full_output              .false.
