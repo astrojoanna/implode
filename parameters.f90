@@ -167,7 +167,7 @@ subroutine read_parameters(ctrl_file)
   M0 = 4.*pi*rhos*Rsolid**3./3.       ! mass of the cloud [g]
   monomer = 4.*pi*rhos*a0**3./3.      ! monomer mass
   mmax = 4.*pi*rhos*ainimax**3./3.    ! initial maximum mass of a pebble
-  mini = 4.*pi*rhos*ainimin**3./3.    ! initial minimim mass of a pebble
+  mini = 4.*pi*rhos*ainimin**3./3.    ! initial minimum mass of a pebble
   boulder = 4.*(2.*sigmag)**3./(3.*(pi*rhos)**2.)    ! mass of a St=1 particle
   R0 = adis*(M0/(3.*Msun))**(1./3.)   ! initial radius of the cloud [cm] (here: equal to the Hill radius)
   mswarm=M0/real(NN)                  ! physical mass of dust represented by each representative particle
