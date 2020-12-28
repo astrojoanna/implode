@@ -45,7 +45,7 @@ Parameters that can be set in the parameter file and changed without re-compilin
 24. `output_freq`             number of timesteps between outputs (integer)
 25. `output_dt_year`          maximum time between outputs (float [years])
 26. `screen_out`              write extended screen output? (logical)
-27. `full_output`             should full output be written? (see below)
+27. `full_output`             should the full output be saved? (in =`false`, only the most recent full output is saved in the `output...dat` file, see below)
 
 ### Output
 
