@@ -74,4 +74,4 @@ This code is licensed under the GNU General Public License v3. Among other thing
 
 ## Credits
 
-Please cite Visser, Drążkowska, & Dominik (2020).
+Please cite Visser, Drążkowska, & Dominik (2021).
