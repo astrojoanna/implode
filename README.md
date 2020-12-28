@@ -74,4 +74,6 @@ This code is licensed under the GNU General Public License v3. Among other thing
 
 ## Credits
 
-Please cite Visser, Drążkowska, & Dominik (2021).
+Please cite Visser, Drążkowska, & Dominik (2021) and the Zenodo DOI.
+[![DOI](https://zenodo.org/badge/294766369.svg)](https://zenodo.org/badge/latestdoi/294766369)
+
